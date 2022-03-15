@@ -4,6 +4,7 @@
   "description": "## Example",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf dist",
     "dev": "webpack-dev-server --config ./build/webpack.config.js",
     "build": "webpack --config ./build/webpack.config.js",
     "test": "babel --out-dir dist ./src",

@@ -1,5 +1,7 @@
 {
   "plugins": [
-    ["./plugins/babel-plugin-example/src/index.js"]
+    // ["./plugins/babel-plugin-example"],
+    ["./plugins/babel-plugin-console", {"env": "production"}],
+    ["./plugins/babel-plugin-lodash", {}]
   ]
 }
