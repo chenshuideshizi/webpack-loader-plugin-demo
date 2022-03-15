@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config ./build/webpack.config.js",
-    "build": "webpack --config ./build/webpack.config.js"
+    "build": "webpack --config ./build/webpack.config.js",
+    "test": "babel --out-dir dist ./src",
+    "test:babel-plugin-lodash": "babel --out-dir dist ./src",
+    "test:babel-plugin-example": "node ./plugins/babel-plugin-example/test/test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.5",
     "babel-loader": "^8.2.3",
     "babel-plugin-import": "^1.13.3",
