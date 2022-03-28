@@ -6,8 +6,16 @@ const { getOptions, interpolateName } = require("loader-utils");
 
 */
 function loader(content){
-  let options = getOptions(this) || {}; // 拿到参数
-  // 下面的参数 this是loaderContext， filename是文件名生成模板，即webpack配置中的[hash].[ext] content是文件内容
+  console.log('---- file-loader ----')
+  let options = getOptions(this) || {}; // 获取参数
+
+  /**
+   * 下面的参数
+   * this是loaderContext，
+   * filename是文件名生成模板，即webpack配置中的[hash].[ext]
+   * content是文件内容
+   */
+
   let url = interpolateName(this, options.filename || "[hash].[ext]", {content}); // 转换名字
   // 向输出目录里输出一个文件
   // this.emitFile是loaderRunner提供的
