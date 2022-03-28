@@ -8,7 +8,6 @@ module.exports = ({ types: t, template }) => {
     },
     visitor: {
       ImportDeclaration(path, state, scope) {
-        console.log('path', path)
         const specifiers = path.get("specifiers");
         const source = path.get("source");
         // import lodash from 'lodash'

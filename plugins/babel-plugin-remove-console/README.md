@@ -1,4 +1,4 @@
-# babel-plugin-console
+# babel-plugin-remove-console
 
 ## 介绍
 

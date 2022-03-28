@@ -1,7 +1,7 @@
 {
   "plugins": [
     // ["./plugins/babel-plugin-example"],
-    ["./plugins/babel-plugin-console", {"env": "production"}],
+    ["./plugins/babel-plugin-remove-console", {"env": "production"}],
     ["./plugins/babel-plugin-lodash", {}]
   ]
 }

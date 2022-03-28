@@ -10,12 +10,13 @@ const path = require('path')
  */
 function loader(inputSource, map, ast){
   console.log('---- babel-loader ----')
-  const customOptions = this.getOptions()
-  const options = {
-    // presets: ["@babel/preset-env"], // 转换靠预设。预设是插件的集合
-    ...customOptions,
-    sourceMaps: true, // 如果这个参数不传，默认值为false，不会生成sourceMap
-    filename: path.basename(this.resourcePath) // 生成的文件名
+  const options = this.getOptions()
+
+  const babelOptions = {
+    // presets: ['@babel/preset-env'],
+    ...options,
+    sourceMaps: true,
+    filename: path.basename(this.resourcePath)
 
   }
   /**
@@ -24,7 +25,7 @@ function loader(inputSource, map, ast){
    * transRes.map: 转换后的代码到转换前的戴梦得映射，
    * transRes.ast: 是转换后的抽象语法树
    */
-  let transRes = babel.transform(inputSource, options);
+  let transRes = babel.transform(inputSource, babelOptions);
 
   /**
    * loader的返回值可以是一个值，也可以是多个值

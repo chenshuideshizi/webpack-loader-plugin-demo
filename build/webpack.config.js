@@ -1,10 +1,12 @@
 const path = require('path')
 
-module.exports = {
+const webpackConfig = {
   mode: 'development',
   entry: {
-    babel: './src/entry-babel.js',
-    file: './src/entry-file.js'
+    babel: './src/entry-babel-loader.js',
+    file: './src/entry-file-loader.js',
+    removeConsole: './src/entry-remove-console.js', // 移除 remove
+    babelLodash: './src/entry-lodash' // lodash 按需引入
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -19,7 +21,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            // presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env']
           }
         }
       },
@@ -33,10 +35,15 @@ module.exports = {
   },
   resolve: {
     modules: ['node_modules']
-  },
-  resolveLoader: {
-    modules: [path.resolve(__dirname, '../loaders'), 'node_modules'],
-    extensions: ['.js', '.json'],
-    mainFields: ['loader', 'main'],
   }
 }
+
+if (process.env.run_env === 'dev_loader') {
+  webpackConfig.resolveLoader = {
+    modules: [path.resolve(__dirname, '../loaders'), 'node_modules'],
+    extensions: ['.js', '.json'],
+    mainFields: ['main'],
+  }
+}
+
+module.exports = webpackConfig

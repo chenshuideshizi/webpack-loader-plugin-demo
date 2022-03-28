@@ -1,4 +1,4 @@
-const isProcuction = process.env.NODE_ENV === "production";
+const isProcuction = process.env.NODE_ENV === 'production'
 
 module.exports = ({ types: t, template }) => {
   return {
